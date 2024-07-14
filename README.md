@@ -6,4 +6,4 @@ Well then you're in luck!
 
 I've created a simple boilerplate for your new bot, along with a way to keep your **TOP SECRET TOKEN** out of reach from _dangerous people_ who can use it to access your bot data!
 
-_**WATCH ![THIS VIDEO](https://www.youtube.com/watch?v=KZ3tIGHU314) BEFORE YOU BEGIN CODING TO SET UP YOUR BOT IN THE DISCORD DEVELOPER PORTAL**_
+_**WATCH [THIS VIDEO](https://www.youtube.com/watch?v=KZ3tIGHU314) BEFORE YOU BEGIN CODING TO SET UP YOUR BOT IN THE DISCORD DEVELOPER PORTAL**_
