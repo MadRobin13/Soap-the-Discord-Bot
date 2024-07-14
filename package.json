@@ -10,8 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "discord.js": "^14.15.3",
-    "FileReader": "^0.10.2",
-    "fs": "^0.0.1-security"
+    "discord.js": "^14.15.3"
   }
 }
