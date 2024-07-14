@@ -29,7 +29,7 @@ const client = new Client({
         IntentsBitField.Flags.Guilds,
         IntentsBitField.Flags.GuildMembers,
         IntentsBitField.Flags.GuildMessages,
-        IntentsBitField.Flags.MessageContent
+        IntentsBitField.Flags.MessageContent 
     ]});
 
 //Reading the key from the key.txt file toi log in the bot using my generated token (you can get yours from 
