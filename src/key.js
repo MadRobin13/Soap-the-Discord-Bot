@@ -1,5 +1,5 @@
 let token = '';
 
-globalThis.token = 'MTI2MTg4NDg3Mzc3NDQ2NTAzNQ.GwEcB-.3tCgOEW2bcB6_8EVgH5z7JK_bJc2huBhxFBBCQ';
+globalThis.token = 'MTI2MTg4NDg3Mzc3NDQ2NTAzNQ.GzICzU.O8GZ6lq7WDfpR3wOlfVCMZpRp4vo7m35fu6vGQ';
 
 export { token };
