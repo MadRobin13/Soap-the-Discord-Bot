@@ -1,6 +1,6 @@
 //WATCH THIS VIDEO FIRST TO SET UP YOUR BOT IN THE DISCORD DEVELOPER PORTAL: https://www.youtube.com/watch?v=KZ3tIGHU314
 
-//To begin you'll want to setup your project by running npm init -y in the terminal to create a package.json file OUTSIDE THE SRC FOLDER.
+//To begin you'll want to set up your project by running npm init -y in the terminal to create a package.json file OUTSIDE THE SRC FOLDER.
 //Then, you'll want to install the discord.js module by running npm install discord.js in the terminal.
 //Finally, you'll want to create a key.txt file in the src folder and put your bot token in it (you can get this from the discord developer portal).
 
