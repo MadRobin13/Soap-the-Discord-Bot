@@ -1,4 +1,7 @@
+#Ignoring the key.txt file with your secret token (DON'T TELL ANYONE YOUR SECRET TOKEN)
 src/key.txt
 
+#Ignoring the package-lock.json file, the package.json file, and the node_modules folder (these are created when you run the npm commands)
 package-lock.json
 package.json
+node_modules/
