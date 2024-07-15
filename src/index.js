@@ -1,49 +1,10 @@
 require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.listen(port, () => {
-    console.log(`Listening at ${port}`);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // List of swear words that should be filtered out of the chat
 const swearWords = [
-    // Common swear words
+    // Swear words
     "ass",
     "bastard",
     "bitch",
