@@ -32,6 +32,16 @@ const swearWords = [
     "tit",
     "twat",
     "wanker",
+    "retard",
+    "whore",
+    "slut",
+    "spic",
+    "chink",
+    "kike",
+    "gook",
+    "wetback",
+    "tranny",
+    "trannies",
   
     // Variations with symbols
     "a$$",
@@ -76,7 +86,20 @@ const swearWords = [
     "tw@t",
     "w@nk",
     "w@nker",
-];  
+    "r3tard",
+    "r*tard",
+    "wh*re",
+    "wh0re",
+    "sl*t",
+    "sp*c",
+    "ch!nk",
+    "k!ke",
+    "g**k",
+    "w3tback",
+    "tr*anny",
+    "tr@nnies"
+];
+
 
 const client = new Client({
     intents: [
@@ -92,13 +115,26 @@ client.on('ready', (c) => {
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
     for (let i = 0; i < swearWords.length; i++) {
-        if (message.content.toLowerCase().includes(swearWords[i])) {
-            message.delete();
+        if (message.content.toLowerCase().split(' ').includes(swearWords[i])) {
             message.reply(`Please do not swear in this server ${message.author}!`); 
+            console.log(message.content);
+            message.delete();
             return;
         }
     }
-})
+});
+
+// client.on('message', (message) => {
+//     if (message.author.bot) return;
+//     for (let i = 0; i < swearWords.length; i++) {
+//         if (message.content.toLowerCase().includes(swearWords[i])) {
+//             message.reply(`Please do not swear in this server ${message.author}!`); 
+//             console.log(message.content);
+//             message.delete();
+//             return;
+//         }
+//     }
+// });
 
 client.login(process.env.TOKEN);
 
