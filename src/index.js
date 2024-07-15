@@ -93,7 +93,7 @@ const client = new Client({
             for (let i = 0; i < swearWords.length; i++) {
                 if (message.content.toLowerCase().includes(swearWords[i])) {
                     message.delete();
-                    message.reply(`Please do not swear in this server ${message.author}!`);
+                    message.reply(`Please do not swear in this server ${message.author}!`); 
                     return;
                 }
             }
