@@ -1,5 +1,45 @@
 require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.listen(port, () => {
+    console.log(`Listening at ${port}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // List of swear words that should be filtered out of the chat
 const swearWords = [
@@ -75,7 +115,7 @@ const swearWords = [
     "tw@t",
     "w@nk",
     "w@nker",
-  ];  
+];  
 
 const client = new Client({
     intents: [
@@ -85,20 +125,20 @@ const client = new Client({
         IntentsBitField.Flags.MessageContent 
     ]});
 
-        client.on('ready', (c) => {
-            console.log(`${c.user.username} is ready!`)
-        });
-        client.on('messageCreate', (message) => {
-            if (message.author.bot) return;
-            for (let i = 0; i < swearWords.length; i++) {
-                if (message.content.toLowerCase().includes(swearWords[i])) {
-                    message.delete();
-                    message.reply(`Please do not swear in this server ${message.author}!`); 
-                    return;
-                }
-            }
-        })
+client.on('ready', (c) => {
+    console.log(`${c.user.username} is ready!`)
+});
+client.on('messageCreate', (message) => {
+    if (message.author.bot) return;
+    for (let i = 0; i < swearWords.length; i++) {
+        if (message.content.toLowerCase().includes(swearWords[i])) {
+            message.delete();
+            message.reply(`Please do not swear in this server ${message.author}!`); 
+            return;
+        }
+    }
+})
 
-        client.login(process.env.TOKEN);
+client.login(process.env.TOKEN);
 
 

@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "nodemon"
+    "build": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,8 @@
   "dependencies": {
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
-    "nodemon": "^3.1.4"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "vercel": "^32.3.0"
   }
 }
