@@ -1,4 +1,4 @@
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
 
 
@@ -112,30 +112,21 @@ const client = new Client({
 client.on('ready', (c) => {
     console.log(`${c.user.username} is ready!`)
 });
-client.on('messageCreate', (message) => {
+
+
+client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
     for (let i = 0; i < swearWords.length; i++) {
         if (message.content.toLowerCase().split(' ').includes(swearWords[i])) {
-            message.reply(`Please do not swear in this server ${message.author}!`); 
-            console.log(message.content);
-            message.delete();
-            return;
-        }
+            try {
+                await message.reply(` Don't swear here ${message.author}!`);
+                await message.delete();
+            } catch (e) {
+                console.error('error deleting message', e);
+            }
+            break;
+        } 
     }
 });
 
-// client.on('message', (message) => {
-//     if (message.author.bot) return;
-//     for (let i = 0; i < swearWords.length; i++) {
-//         if (message.content.toLowerCase().includes(swearWords[i])) {
-//             message.reply(`Please do not swear in this server ${message.author}!`); 
-//             console.log(message.content);
-//             message.delete();
-//             return;
-//         }
-//     }
-// });
-
 client.login(process.env.TOKEN);
-
-
