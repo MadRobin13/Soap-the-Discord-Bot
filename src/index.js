@@ -3,103 +3,25 @@ const {Client, IntentsBitField} = require('discord.js');
 const fs = require('fs');
 
 // List of swear words that should be filtered out of the chat
-const swearWords = [
-    // Swear words
-    "ass",
-    "bastard",
-    "bitch",
-    "bollocks",
-    "crap",
-    "cunt",
-    "damn",
-    "dick",
-    "douche",
-    "fag",
-    "faggot",
-    "fuck",
-    "goddamn",
-    "hell",
-    "idiot",
-    "jerk",
-    "motherfucker",
-    "nigga",
-    "nigger",
-    "piss",
-    "prick",
-    "pussy",
-    "shit",
-    "slut",
-    "tit",
-    "twat",
-    "wanker",
-    "retard",
-    "whore",
-    "slut",
-    "spic",
-    "chink",
-    "kike",
-    "gook",
-    "wetback",
-    "tranny",
-    "trannies",
-  
-    // Variations with symbols
-    "a$$",
-    "@ss",
-    "b!tch",
-    "b!7ch",
-    "b17ch",
-    "b!+ch",
-    "b!t+h",
-    "b1tch",
-    "b1+ch",
-    "b*tch",
-    "b!+ch",
-    "b!tch",
-    "c*nt",
-    "c**t",
-    "c*nt",
-    "d*mn",
-    "d*ck",
-    "d1ck",
-    "d!ck",
-    "f*ck",
-    "f**k",
-    "f*ck",
-    "f*ck",
-    "f**k",
-    "f*ck",
-    "f@ggot",
-    "f@g",
-    "f@g",
-    "f@ggot",
-    "f@g",
-    "f@ggot",
-    "g*ddamn",
-    "h3ll",
-    "sh!t",
-    "sh1t",
-    "sh!t",
-    "sh*t",
-    "t1t",
-    "t!t",
-    "tw@t",
-    "w@nk",
-    "w@nker",
-    "r3tard",
-    "r*tard",
-    "wh*re",
-    "wh0re",
-    "sl*t",
-    "sp*c",
-    "ch!nk",
-    "k!ke",
-    "g**k",
-    "w3tback",
-    "tr*anny",
-    "tr@nnies"
-];
 
+
+
+let swearWords = [];
+
+await fs.readFile('src/words.txt', 'utf8', async (err, data) => {
+    if (err) {
+        console.error('error reading file', err);
+        return;
+    }
+    swearWords = data.split('\n');
+    // console.log(swearWords);
+})
+console.log(swearWords);
+
+// for (let i = 0; i < swearWords.length; i++) {
+//     swearWords[i].replace(/\r/g, '');   
+// }
+// console.log(swearWords);
 
 const client = new Client({
     intents: [
