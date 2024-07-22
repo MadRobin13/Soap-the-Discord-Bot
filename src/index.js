@@ -116,16 +116,19 @@ client.on('ready', (c) => {
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
+    let msg = message.content.toLowerCase().split(' ');
     for (let i = 0; i < swearWords.length; i++) {
-        if (message.content.toLowerCase().split(' ').includes(swearWords[i])) {
-            try {
-                await message.reply(` Don't swear here ${message.author}!`);
-                await message.delete();
-            } catch (e) {
-                console.error('error deleting message', e);
-            }
-            break;
-        } 
+        for (let j = 0; j < msg.length; j++) {
+            if (msg[j] === swearWords[i]) {
+                try {
+                    await message.reply(` Don't swear here ${message.author}!`);
+                    await message.delete();
+                } catch (e) {
+                    console.error('error deleting message', e);
+                }
+                break;
+            } 
+        }
     }
 });
 
