@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
-
+const fs = require('fs');
 
 // List of swear words that should be filtered out of the chat
 const swearWords = [
