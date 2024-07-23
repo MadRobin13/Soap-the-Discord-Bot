@@ -13,10 +13,8 @@ fs.readFile('src/words.txt', 'utf8', async (err, data) => {
         console.error('error reading file', err);
         return;
     }
+   
     swearWords = data.split('\r\n');
-    swearWords = swearWords.replaceAll(/\"/g, '');
-   swearWords = swearWords.filter((word) => word.length > 0);
-    
     loginClient();
     // console.log(swearWords); 
 })
@@ -42,6 +40,9 @@ client.on('ready', (c) => {
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
     let msg = message.content.toLowerCase().split(' ');
+    for (let m = 0; m < msg.length; m++) {
+        msg[m] = msg[m].replaceAll(/[^a-zA-Z\s]/g, '');
+    }
     for (let i = 0; i < swearWords.length; i++) {
         for (let j = 0; j < msg.length; j++) {
             if (msg[j] === swearWords[i]) {
