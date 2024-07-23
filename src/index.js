@@ -7,16 +7,18 @@ const fs = require('fs');
 
 
 let swearWords = [];
+let dataLoaded = false;
 
-await fs.readFile('src/words.txt', 'utf8', async (err, data) => {
+fs.readFile('src/words.txt', 'utf8', async (err, data) => {
     if (err) {
         console.error('error reading file', err);
         return;
     }
-    swearWords = data.split('\n');
-    // console.log(swearWords);
+    swearWords = data.split('\r\n');
+    extractWords(data);
+    loginClient();
+    // console.log(swearWords); 
 })
-console.log(swearWords);
 
 // for (let i = 0; i < swearWords.length; i++) {
 //     swearWords[i].replace(/\r/g, '');   
@@ -54,4 +56,14 @@ client.on('messageCreate', async (message) => {
     }
 });
 
-client.login(process.env.TOKEN);
+function loginClient() {
+    client.login(process.env.TOKEN);
+}
+
+function extractWords(data) {  
+    this.swearWords = data.split('\n');
+
+    for(let i =0; i < swearWords.length; i++) {
+        swearWords[i].replace(/\r/g, ''); 
+    }
+}
