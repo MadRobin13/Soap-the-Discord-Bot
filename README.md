@@ -6,6 +6,6 @@
 
 **Then you're in luck because I've just created the perfect companion for your server.**
 
-***Meet Soap🧼: the dependable bot who is willing to call out anyone for cussing and insulting others, something we can't tolerate in an inclusive community.**
+**Meet Soap🧼: the dependable bot who is willing to call out anyone for cussing and insulting others, something we can't tolerate in an inclusive community.**
 
 **He'll keep your server healthy to keep it growing and maintain a welcoming community!**
