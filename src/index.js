@@ -2,9 +2,6 @@ const dotenv = require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
 const fs = require('fs');
 
-// List of swear words that should be filtered out of the chat
-
-
 
 let swearWords = [];
 
@@ -16,13 +13,7 @@ fs.readFile('src/words.txt', 'utf8', async (err, data) => {
    
     swearWords = data.split('\r\n');
     loginClient();
-    // console.log(swearWords); 
-})
-
-// for (let i = 0; i < swearWords.length; i++) {
-//     swearWords[i].replace(/\r/g, '');   
-// }
-// console.log(swearWords);
+});
 
 const client = new Client({
     intents: [
@@ -38,25 +29,38 @@ client.on('ready', (c) => {
 
 
 client.on('messageCreate', async (message) => {
+
     if (message.author.bot) return;
-    let msg = message.content.toLowerCase().split(' ');
+
+
+    let containsSwearWord = false;
+    let msg = message.content.trim().toLowerCase().split(' ');
+
     for (let m = 0; m < msg.length; m++) {
-        msg[m] = msg[m].replaceAll(/[^a-zA-Z\s]/g, '');
+        msg[m] = msg[m].replaceAll(/[^a-zA-Z\s]/g, '').trim();
     }
+
+
     for (let i = 0; i < swearWords.length; i++) {
         for (let j = 0; j < msg.length; j++) {
             if (msg[j] === swearWords[i]) {
-                try {
-                    await message.reply(` Don't swear here ${message.author}!`);
-                    await message.delete();
-                } catch (e) {
-                    console.error('error deleting message', e);
-                }
-                break;
+                containsSwearWord = true;
             } 
         }
     }
+
+
+    if (containsSwearWord) {
+        try {
+            await message.reply(`Don't swear here ${message.author}!`);
+            await message.delete();
+        } catch (e) {
+            console.error('error deleting message', e);
+        }
+    }   
 });
+
+
 
 function loginClient() {
     client.login(process.env.TOKEN);
