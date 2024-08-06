@@ -4,8 +4,8 @@ Name: Soap the Discord Bot
 Author: Abhimanyu Chaudhary
 Date: 2024-07-26
 Description: A discord bot that detects and removes any messages in a 
-             Discord server containing swear words or profanity. 
-             It logs actions and reprimands the user who sent the message.
+             Discord server containing swear words or obscene language. 
+             It logs all profanity and reprimands the user who sent the message.
 
 */
 
@@ -14,16 +14,19 @@ Description: A discord bot that detects and removes any messages in a
 
 // This is where we import the necessary modules and packages
 
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const dotenv = require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
 const fs = require('fs');
 
+// This is where we create an new instance of the Mongo Client for our database
+// and connect to the database using the URI located in the .env file
+const monClient = new MongoClient(process.env.URI);
 
 
 // This is where we declare the swearWords array
 
 let swearWords = [];
-
 
 
 // This is where we read the words.txt file and 
@@ -101,16 +104,33 @@ client.on('messageCreate', async (message) => {
     
 // If the message contains a swear word, the bot will
 // reply to the user who sent the message
-// and delete the original message
+// and delete the original message.
+
+// The bot will also log the action in the database
+// as well as any relevant information about the user and the message.
+// This includes the user's name, username, id, the time the message was sent,
+// and the message itself.
 
     if (containsSwearWord) {
         try {
             await message.reply(`Don't swear here ${message.author}!`);
             await message.delete();
+
+            await monClient.connect();
+            await monClient.db("DiscordBot").collection("Logs").insertOne(
+                {
+                    name: message.author.displayName.toString(), username: message.author.username.toString(), id: message.author.id.toString(),
+                    time: Date(message.createdTimestamp).toString(), message: message.content.toString()
+                }
+            );
+
         } catch (e) {
-            console.error('error deleting message', e);
+            console.error(e);
+        } finally {
+            monClient.close();
         }
     }   
+
 });
 
 
