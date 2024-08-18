@@ -9,3 +9,11 @@
 **Meet Soap🧼: the dependable bot who is willing to call out anyone for cussing and insulting others, something we can't tolerate in an inclusive community.**
 
 **He'll keep your server healthy to keep it growing and maintain a welcoming community!**
+
+___
+
+P.S.
+ -  Read the comments I left in the code to understand eveything and how you can customize it,
+    and then you should use the commands I left in [package.json]('./package.json') to run the bot!
+
+ - Also you'll want to use this code with your own bot and mongodb database using your own api keys

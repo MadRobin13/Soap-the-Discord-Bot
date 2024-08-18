@@ -19,6 +19,15 @@ const dotenv = require('dotenv').config();
 const {Client, IntentsBitField} = require('discord.js');
 const fs = require('fs');
 
+
+// This is where I define the database name and
+// collection name for the MongoDB database but
+// you should change these to match your own database
+
+const dbName = "DiscordBot";
+const collectionName = "Logs";
+
+
 // This is where we create an new instance of the Mongo Client for our database
 // and connect to the database using the URI located in the .env file
 const monClient = new MongoClient(process.env.URI);
