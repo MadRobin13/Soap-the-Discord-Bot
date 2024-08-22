@@ -14,8 +14,8 @@
 
 ___
 
-P.S.
- -  Read the comments I left in the code to understand eveything and how you can customize it,
-    and then you should use the commands I left in [package.json]('./package.json') to run the bot!
+## To run this code:
 
- - Also you'll want to use this code with your own bot and mongodb database using your own api keys
+ - use `npm run build` to run the code
+ - use `npm run test` to only run [src/index.js](src/index.js)
+
