@@ -38,7 +38,7 @@ message: "message content"
    `
 
 For example: 
-![mongodb example image](images_and_vids\mongodb_exmple.png)
+![mongodb example image](mongodb_exmple.png)
 
 ## License:
 This project is licensed under the Apache Version 2.0 license and can be found in [LICENSE](LICENSE).
