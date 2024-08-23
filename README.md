@@ -26,7 +26,11 @@ ___
 
 ## How to Use:
 1. Run [index.js](src/index.js)
-2. if any message contains a word from [words.txt](src/words.txt), it will be deleted, the bot will say "_Don't swear here @author_" and details will be stored in a MongoDB database in the format:
+2. if any message contains a word from [words.txt](src/words.txt), it will be deleted and the bot will say "_Don't swear here @author_"
+
+![example gif](./soap_bot_gif_v2/soap_bot_gif_v2.gif)
+
+3. Then the message details will be stored in a MongoDB database in the format:
    
    `
 _id: ObjectId
@@ -39,6 +43,8 @@ message: "message content"
 
 For example: 
 ![mongodb example image](mongodb_exmple.png)
+
+___
 
 ## License:
 This project is licensed under the Apache Version 2.0 license and can be found in [LICENSE](LICENSE).
