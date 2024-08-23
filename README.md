@@ -28,7 +28,7 @@ ___
 1. Run [index.js](src/index.js)
 2. if any message contains a word from [words.txt](src/words.txt), it will be deleted and the bot will say "_Don't swear here @author_"
 
-![example gif](./soap_bot_gif_v2/soap_bot_gif_v2.gif)
+![example gif](./soap_bot_gif_v2/soap_bot_gif_v2.mp4)
 
 3. Then the message details will be stored in a MongoDB database in the format:
    
