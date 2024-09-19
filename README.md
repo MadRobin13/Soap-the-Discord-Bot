@@ -1,5 +1,5 @@
 # Soap the Discord Bot!
-
+![Soap Logo](Soap_logo_v2.png)
 ### Do you have Problems with profanity in your server?
 
 ![tom and jerry cleaning motuh with soap gif](https://media.tenor.com/RbOWIwfiCiwAAAAM/wash-mouth.gif)
